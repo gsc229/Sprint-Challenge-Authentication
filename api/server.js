@@ -11,7 +11,9 @@ const server = express();
 server.use(helmet());
 server.use(cors());
 server.use(express.json());
-
+server.get('/api', (req, res) => {
+  res.json({ message: "YOUR SERVER IS WROKING..." })
+})
 server.use('/api/auth', authRouter);
 server.use('/api/jokes', authenticate, jokesRouter);
 
